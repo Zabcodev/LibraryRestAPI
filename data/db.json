@@ -2,13 +2,13 @@
   "books": [
     {
       "id": "17738d3c-9f1e-11ec-8d3d-0242ac130003",
-      "title": "Cien años de soledad",
-      "category": "Realismo mágico",
+      "title": "Cien a\u00f1os de soledad",
+      "category": "Realismo m\u00e1gico",
       "release_date": 1967,
       "authors": [
         {
           "id": "17738d3c-9f1e-11ec-8d3d-0242ac130004",
-          "fullname": "Gabriel García Márquez",
+          "fullname": "Gabriel Garc\u00eda M\u00e1rquez",
           "date_birth": "06-03-1927"
         }
       ]
@@ -16,7 +16,7 @@
     {
       "id": "17738d3c-9f1e-11ec-8d3d-0242ac130005",
       "title": "1984",
-      "category": "Ficción distópica",
+      "category": "Ficci\u00f3n dist\u00f3pica",
       "release_date": 1949,
       "authors": [
         {
@@ -29,7 +29,7 @@
     {
       "id": "17738d3c-9f1e-11ec-8d3d-0242ac130007",
       "title": "Don Quijote de la Mancha",
-      "category": "Novela de caballería",
+      "category": "Novela de caballer\u00eda",
       "release_date": 1605,
       "authors": [
         {
@@ -42,7 +42,7 @@
     {
       "id": "17738d3c-9f1e-11ec-8d3d-0242ac130009",
       "title": "Harry Potter y la piedra filosofal",
-      "category": "Fantasía",
+      "category": "Fantas\u00eda",
       "release_date": 1997,
       "authors": [
         {
@@ -54,7 +54,7 @@
     },
     {
       "id": "17738d3c-9f1e-11ec-8d3d-0242ac130011",
-      "title": "El código Da Vinci",
+      "title": "El c\u00f3digo Da Vinci",
       "category": "Misterio",
       "release_date": 2003,
       "authors": [
@@ -73,7 +73,7 @@
       "authors": [
         {
           "id": "17738d3c-9f1e-11ec-8d3d-0242ac130014",
-          "fullname": "Roberto Bolaño",
+          "fullname": "Roberto Bola\u00f1o",
           "date_birth": "28-04-1953"
         },
         {
@@ -82,12 +82,25 @@
           "date_birth": "24-08-1936"
         }
       ]
+    },
+    {
+      "id": "90c75285-01db-11ef-89c4-18dbf20f06d1",
+      "title": "En agosto nos vemos",
+      "category": "Realismo m\u00e1gico",
+      "release_date": 2024,
+      "authors": [
+        {
+          "id": "17738d3c-9f1e-11ec-8d3d-0242ac130004",
+          "fullname": "Gabriel Garc\u00eda M\u00e1rquez",
+          "date_birth": "06-03-1927"
+        }
+      ]
     }
   ],
   "authors": [
     {
       "id": "17738d3c-9f1e-11ec-8d3d-0242ac130004",
-      "fullname": "Gabriel García Márquez",
+      "fullname": "Gabriel Garc\u00eda M\u00e1rquez",
       "date_birth": "06-03-1927"
     },
     {
@@ -112,7 +125,7 @@
     },
     {
       "id": "17738d3c-9f1e-11ec-8d3d-0242ac130014",
-      "fullname": "Roberto Bolaño",
+      "fullname": "Roberto Bola\u00f1o",
       "date_birth": "28-04-1953"
     },
     {

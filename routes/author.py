@@ -9,7 +9,7 @@ author_router = APIRouter(prefix='/authors', tags=['authors'])
 async def get_authors():
     ''' ENDPOINT GET ALL AUTHORS FROM DB.JSON '''
 
-    with open('data/db.json', 'r') as jsonfile:
+    with open('data/db.json', 'r', encoding="utf-8") as jsonfile:
         data = load(jsonfile)
         authors = data['authors']
         if authors is None:
@@ -21,7 +21,7 @@ async def get_authors():
 async def get_author_by_id(uid: str = Path(min_length=10)):
     ''' ENDPOINT GET AUTHOR BY UNIQUE ID '''
 
-    with open('data/db', 'r') as jsonfile:
+    with open('data/db', 'r', encoding="utf-8") as jsonfile:
         data = load(jsonfile)
         authors = data['authors']
         for author in authors:
