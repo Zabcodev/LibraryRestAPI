@@ -85,7 +85,6 @@ async def create_book(book: Book):
 
     with open('data/db.json', 'w', encoding='utf-8') as file:
         dump(data, file, indent=2)
-
     return JSONResponse(content={'message': 'El libro se ha creado exitosamente.'}, status_code=status.HTTP_201_CREATED)
 
 
@@ -126,7 +125,6 @@ async def update_book_by_id(uid: str, book: Book):
 
     with open('data/db.json', 'w', encoding='utf-8') as file:
         dump(data, file, indent=2)
-
     return JSONResponse(content={'message': f'Libro actualizado con exito'}, status_code=status.HTTP_200_OK)
 
 
@@ -143,5 +141,4 @@ async def delete_book(uid: str = Path(min_length=10)):
 
     with open('data/db.json', 'w', encoding='utf-8') as file:
         dump(data, file, indent=2)
-
     return JSONResponse(content={'message': f'Libro con el id {uid} eliminado exitosamente.'})
