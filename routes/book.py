@@ -4,7 +4,7 @@ from json import load, dump
 from fastapi.responses import JSONResponse
 from operator import itemgetter
 from utils.logger import logger
-from uuid import uuid1
+from uuid import uuid1, UUID
 
 book_router = APIRouter(prefix='/books', tags=['books'])
 
@@ -22,14 +22,14 @@ async def get_books():
 
 
 @book_router.get('/{uid}')
-async def get_book_by_id(uid: str = Path(min_length=10)):
+async def get_book_by_id(uid: UUID = Path(min_length=10)):
     ''' ENDPOINT GET BOOK BY UNIQUE ID'''
 
     with open('data/db.json', 'r', encoding='utf-8') as jsonfile:
         data = load(jsonfile)
         books = data['books']
         for book in books:
-            if book['id'] == uid:
+            if book['id'] == str(uid):
                 return JSONResponse(content=book, status_code=status.HTTP_200_OK)
         return JSONResponse(content={}, status_code=status.HTTP_404_NOT_FOUND)
 
@@ -89,7 +89,7 @@ async def create_book(book: Book):
 
 
 @book_router.put('/{uid}')
-async def update_book_by_id(uid: str, book: Book):
+async def update_book_by_id(uid: UUID, book: Book):
     ''' ENDPOINT UPDATE BOOK BY UNIQUE ID '''
 
     title, category, release_date, authors = itemgetter(
@@ -101,7 +101,7 @@ async def update_book_by_id(uid: str, book: Book):
     with open('data/db.json', 'r', encoding='utf-8') as jsonfile:
         data = load(jsonfile)
 
-        valid_book = [book for book in data["books"] if book["id"] == uid]
+        valid_book = [book for book in data["books"] if book["id"] == str(uid)]
 
         for author in authors:
             authors_validation = [
@@ -117,7 +117,7 @@ async def update_book_by_id(uid: str, book: Book):
         return JSONResponse(content={"message": "Libro no encontrado"}, status_code=status.HTTP_404_NOT_FOUND)
 
     for book in data['books']:
-        if book['id'] == uid:
+        if book['id'] == str(uid):
             book['title'] = title
             book['category'] = category
             book['release_date'] = release_date
@@ -129,14 +129,14 @@ async def update_book_by_id(uid: str, book: Book):
 
 
 @book_router.delete('/{uid}')
-async def delete_book(uid: str = Path(min_length=10)):
+async def delete_book(uid: UUID = Path(min_length=10)):
     ''' ENDPOINT DELETE BOOK BY UNIQUE ID'''
 
     with open('data/db.json', 'r', encoding='utf-8') as jsonfile:
         data = load(jsonfile)
         books = data['books']
 
-    result = [book for book in books if book['id'] != uid]
+    result = [book for book in books if book['id'] != str(uid)]
     data['books'] = result
 
     with open('data/db.json', 'w', encoding='utf-8') as file:
