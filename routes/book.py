@@ -22,7 +22,7 @@ async def get_books():
 
 
 @book_router.get('/{uid}')
-async def get_book_by_id(uid: UUID = Path(min_length=10)):
+async def get_book_by_id(uid: UUID = Path()):
     ''' ENDPOINT GET BOOK BY UNIQUE ID'''
 
     with open('data/db.json', 'r', encoding='utf-8') as jsonfile:
@@ -35,7 +35,7 @@ async def get_book_by_id(uid: UUID = Path(min_length=10)):
 
 
 @book_router.get('/')
-async def get_book_by_title(title: str = Query(min_length=5, max_length=20)):
+async def get_book_by_title(title: str = Query(min_length=1, max_length=20)):
     ''' ENDPOINT GET BOOK BY TITLE '''
 
     with open('data/db.json', 'r', encoding='utf-8') as jsonfile:
@@ -129,7 +129,7 @@ async def update_book_by_id(uid: UUID, book: Book):
 
 
 @book_router.delete('/{uid}')
-async def delete_book(uid: UUID = Path(min_length=10)):
+async def delete_book(uid: UUID = Path()):
     ''' ENDPOINT DELETE BOOK BY UNIQUE ID'''
 
     with open('data/db.json', 'r', encoding='utf-8') as jsonfile:

@@ -19,10 +19,10 @@ async def get_authors():
 
 
 @author_router.get('/{uid}')
-async def get_author_by_id(uid: UUID = Path(min_length=10)):
+async def get_author_by_id(uid: UUID = Path()):
     ''' ENDPOINT GET AUTHOR BY UNIQUE ID '''
 
-    with open('data/db', 'r', encoding="utf-8") as jsonfile:
+    with open('data/db.json', 'r', encoding="utf-8") as jsonfile:
         data = load(jsonfile)
         authors = data['authors']
         for author in authors:
